@@ -1,0 +1,214 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Smartphone",
+        "category": "Electronics",
+        "price": 699.99,
+        "brand": "BrandA"
+      },
+      {
+        "id": 2,
+        "name": "Laptop",
+        "category": "Electronics",
+        "price": 999.99,
+        "brand": "BrandB"
+      },
+      {
+        "id": 3,
+        "name": "Running Shoes",
+        "category": "Footwear",
+        "price": 120.00,
+        "brand": "BrandC"
+      },
+      {
+        "id": 4,
+        "name": "Blender",
+        "category": "Home Appliances",
+        "price": 59.99,
+        "brand": "BrandD"
+      },
+      {
+        "id": 5,
+        "name": "Jeans",
+        "category": "Apparel",
+        "price": 45.00,
+        "brand": "BrandE"
+      },
+      {
+        "id": 6,
+        "name": "Television",
+        "category": "Electronics",
+        "price": 499.99,
+        "brand": "BrandF"
+      },
+      {
+        "id": 7,
+        "name": "Microwave Oven",
+        "category": "Home Appliances",
+        "price": 150.00,
+        "brand": "BrandG"
+      },
+      {
+        "id": 8,
+        "name": "T-Shirt",
+        "category": "Apparel",
+        "price": 20.00,
+        "brand": "BrandH"
+      },
+      {
+        "id": 9,
+        "name": "Headphones",
+        "category": "Electronics",
+        "price": 199.99,
+        "brand": "BrandI"
+      },
+      {
+        "id": 10,
+        "name": "Sandals",
+        "category": "Footwear",
+        "price": 35.00,
+        "brand": "BrandJ"
+      },
+      {
+        "id": 11,
+        "name": "Coffee Maker",
+        "category": "Home Appliances",
+        "price": 79.99,
+        "brand": "BrandK"
+      },
+      {
+        "id": 12,
+        "name": "Jacket",
+        "category": "Apparel",
+        "price": 60.00,
+        "brand": "BrandL"
+      },
+      {
+        "id": 13,
+        "name": "Smartwatch",
+        "category": "Electronics",
+        "price": 249.99,
+        "brand": "BrandM"
+      },
+      {
+        "id": 14,
+        "name": "Dress Shoes",
+        "category": "Footwear",
+        "price": 85.00,
+        "brand": "BrandN"
+      },
+      {
+        "id": 15,
+        "name": "Refrigerator",
+        "category": "Home Appliances",
+        "price": 1200.00,
+        "brand": "BrandO"
+      },
+      {
+        "id": 16,
+        "name": "Sweater",
+        "category": "Apparel",
+        "price": 40.00,
+        "brand": "BrandP"
+      },
+      {
+        "id": 17,
+        "name": "Tablet",
+        "category": "Electronics",
+        "price": 399.99,
+        "brand": "BrandQ"
+      },
+      {
+        "id": 18,
+        "name": "Sneakers",
+        "category": "Footwear",
+        "price": 95.00,
+        "brand": "BrandR"
+      },
+      {
+        "id": 19,
+        "name": "Vacuum Cleaner",
+        "category": "Home Appliances",
+        "price": 200.00,
+        "brand": "BrandS"
+      },
+      {
+        "id": 20,
+        "name": "Pants",
+        "category": "Apparel",
+        "price": 50.00,
+        "brand": "BrandT"
+      },
+      {
+        "id": 21,
+        "name": "Camera",
+        "category": "Electronics",
+        "price": 899.99,
+        "brand": "BrandU"
+      },
+      {
+        "id": 22,
+        "name": "Boots",
+        "category": "Footwear",
+        "price": 130.00,
+        "brand": "BrandV"
+      },
+      {
+        "id": 23,
+        "name": "Air Conditioner",
+        "category": "Home Appliances",
+        "price": 300.00,
+        "brand": "BrandW"
+      },
+      {
+        "id": 24,
+        "name": "Shirt",
+        "category": "Apparel",
+        "price": 30.00,
+        "brand": "BrandX"
+      },
+      {
+        "id": 25,
+        "name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "price": 150.00,
+        "brand": "BrandY"
+      },
+      {
+        "id": 26,
+        "name": "Flip Flops",
+        "category": "Footwear",
+        "price": 20.00,
+        "brand": "BrandZ"
+      },
+      {
+        "id": 27,
+        "name": "Washing Machine",
+        "category": "Home Appliances",
+        "price": 500.00,
+        "brand": "BrandA1"
+      },
+      {
+        "id": 28,
+        "name": "Hat",
+        "category": "Apparel",
+        "price": 25.00,
+        "brand": "BrandB1"
+      },
+      {
+        "id": 29,
+        "name": "E-Reader",
+        "category": "Electronics",
+        "price": 120.00,
+        "brand": "BrandC1"
+      },
+      {
+        "id": 30,
+        "name": "Formal Shoes",
+        "category": "Footwear",
+        "price": 100.00,
+        "brand": "BrandD1"
+      }
+    ]
+}
