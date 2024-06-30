@@ -1,0 +1,59 @@
+[
+    {
+      "name": "Dolphin",
+      "image": "https://images.unsplash.com/photo-1580072624564-1fe6b660b7e2?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,     "description": "Dolphins are highly intelligent marine mammals known for their playful behavior.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dolphin"
+    },
+    {
+      "name": "Blue Whale",
+      "image":"https://plus.unsplash.com/premium_photo-1664304476130-c5c6eaafb263?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "description": "The blue whale is the largest animal known to have ever existed.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Blue_whale"
+    },
+   
+    {
+      "name": "Sea Turtle",
+      "image":"https://files.worldwildlife.org/wwfcmsprod/images/Sea_Turtle_Hol_Chan_Marine_Reserve_WW1105958/hero_small/5fv88fm3v6_Sea_Turtle_Hol_Chan_Marine_Reserve_WW1105958.jpg",
+          "description": "Sea turtles are marine reptiles with a history dating back to the time of the dinosaurs.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sea_turtle"
+    },
+    {
+      "name": "Jellyfish",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MJAQ7x-OgxlIPVCQeSc9P1TfC1G4jrgPUw&s",      
+      "description": "Jellyfish are free-swimming marine animals with umbrella-shaped bells and tentacles.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Jellyfish"
+    },
+    {
+      "name": "Octopus",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarcuyPhcWKB12cjFHZuBuu7QN0E6lRkLrBw&s",
+          "description": "Octopuses are known for their intelligence, ability to camouflage, and unique appearance.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Octopus"
+    },
+ 
+    {
+      "name": "Seahorse",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuy920EWU57CvWO2eXRDxWLsRhRquo_tG1ug&s",     
+       "description": "Seahorses are small marine fish known for their horse-like head and prehensile tail.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Seahorse"
+    },
+    {
+      "name": "Starfish",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ43C6otpgSIByeJ5VPRSXX7rwCm1fRqBWBoA&s",
+           "description": "Starfish, or sea stars, are echinoderms with typically five arms extending from a central disc.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Starfish"
+    },
+    {
+      "name": "Penguin",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOT60807JhRhKokMQTXHy6E2xm2DPP_DcrbA&s",
+          "description": "Penguins are flightless birds that live in the Southern Hemisphere, especially in Antarctica.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Penguin"
+    },
+
+    {
+      "name": "Sea Lion",
+      "image":"https://images.axios.com/lWvmND-_i1kZwp9K3QakU0jLJRs=/0x0:3481x2611/1440x1080/2023/07/03/1688349800845.jpg", 
+       "description": "Sea lions are marine mammals characterized by external ear flaps and long foreflippers.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sea_lion"
+    }
+
+]
