@@ -1,9 +1,9 @@
-import Filters from "@/component/ProductTable";
+import Table from "@/component/ProductTable";
 const page = () => {
   return (
     <>
       <section className="p-4 flex w-full justify-between">
-        <Filters />
+        <Table />
       </section>
     </>
   );

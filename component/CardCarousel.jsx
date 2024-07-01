@@ -26,7 +26,7 @@ const CardCarousel = ({ selectedItem, index, handleRadioChange }) => {
         alt={SliderData[index].name}
         className="w-full h-full object-cover rounded-lg relative"
       />
-      <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-[#000000c3] to-transparent text-white w-full rounded-b-lg pb-10">
+      <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-[#000000c3] to-transparent text-white w-full rounded-b-lg pb-16">
         <h2 className="text-lg font-semibold">{SliderData[index].name}</h2>
         <p className="text-sm  font-thin">{SliderData[index].description}</p>
         <a
