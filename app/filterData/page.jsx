@@ -3,11 +3,9 @@ import Filters from "@/component/Filters";
 const page = () => {
   return (
     <>
-    <section className="p-4 flex w-full justify-between">
-      <Filters />
-      
-    </section>
-  
+      <section className="p-4 flex w-full justify-between">
+        <Filters />
+      </section>
     </>
   );
 };

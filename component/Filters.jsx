@@ -77,7 +77,7 @@ const ProductTable = ({ resultCount }) => {
   return (
     <div className="container">
       <h1 className="text-3xl">Product List</h1>
-      <div className="relative flex items-center my-7">
+      <div className="sticky flex items-center my-7 border-b pb-4 top-0 bg-black py-2 ">
         <FaFilter
           onClick={handleFilterClick}
           className={`cursor-pointer text-white ${
@@ -135,13 +135,13 @@ const ProductTable = ({ resultCount }) => {
                     </div>
                   ) : (
                     <div className="flex gap-2 items-center">
-                      <div className="relative border border-white rounded w-[200px]">
-                        <div className="text-white text-[11px] bg-black bottom-4 absolute left-2 px-2">
+                      <div className="relative border border-white  w-[200px]">
+                        <div className="text-white text-[11px] bg-black bottom-8 absolute left-2 px-2">
                           {filter.type.charAt(0).toUpperCase() +
                             filter.type.slice(1)}
                         </div>
                         <div
-                          className="text-white bg-black bottom-4 absolute right-4 px-2"
+                          className="text-white bg-black bottom-8 absolute right-4 px-2"
                           onClick={(e) => {
                             e.stopPropagation();
                             setFilters(
@@ -190,7 +190,7 @@ const ProductTable = ({ resultCount }) => {
                   onClick={() => {
                     setShowFilter(0);
                     setFilters([]);
-                    setFilteredData(Data.products); // Reset filters
+                    setFilteredData(Data.products); 
                   }}
                   className="cursor-pointer text-white"
                 />
@@ -202,32 +202,31 @@ const ProductTable = ({ resultCount }) => {
 
         <div
           onClick={() => setFilterSelected(!filterSelected)}
-          className="text-white absolute right-4 border-b border-white"
+          className="text-white absolute right-4 border-b border-white cursor-default"
         >
           {filterSelected ? "Hide Filters" : "Show Filters"}
         </div>
       </div>
-      <div className="container grid place-content-center">
-  
-        <table className="product-table w-[60vw] p-4">
-          <thead className="text-left p-4">
+      <div className="container grid place-content-center ">
+        <table className="product-table w-[60vw] p-4 border ">
+          <thead className="text-left p-4 border bg-gray-800">
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Price</th>
-              <th>Brand</th>
+              <th className="border px-2">ID</th>
+              <th className="border px-2">Name</th>
+              <th className="border px-2">Category</th>
+              <th className="border px-2">Price</th>
+              <th className="border px-2">Brand</th>
             </tr>
           </thead>
           <tbody>
             {filteredData &&
               filteredData.map((product) => (
                 <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.category}</td>
-                  <td>${product.price}</td>
-                  <td>{product.brand}</td>
+                  <td className="px-2 border">{product.id}</td>
+                  <td className="px-2">{product.name}</td>
+                  <td className="px-2">{product.category}</td>
+                  <td className="px-2">${product.price}</td>
+                  <td className="px-2">{product.brand}</td>
                 </tr>
               ))}
           </tbody>

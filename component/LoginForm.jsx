@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function LoginForm({ onLogin }) {
@@ -27,15 +27,15 @@ export default function LoginForm({ onLogin }) {
       });
 
       if (response?.data?.success) {
-        console.log(`Success score: ${response.data.score}`);
-        setSubmit("ReCaptcha Verified!");
-        onLogin();
+        console.log(`Success with score: ${response.data.score}`);
+        setSubmit("ReCaptcha Verified and Form Submitted!");
+        onLogin(response.data.expires);
       } else {
         console.log(`Failure with score: ${response.data.score}`);
-        setSubmit("Failed to verify recaptcha!");
+        setSubmit("Failed to verify recaptcha! You must be a robot!");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error during recaptcha verification:", error);
       setSubmit("Error during recaptcha verification.");
     }
   };

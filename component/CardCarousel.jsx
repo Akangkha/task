@@ -1,7 +1,7 @@
 import SliderData from "@/data/slider.json";
 
 const CardCarousel = ({ selectedItem, index, handleRadioChange }) => {
-  const cardStyle = () => {
+  const cardStyle = () => { 
     if (index === selectedItem) {
       return "translate-x-0 scale-100 opacity-100 z-10";
     } else if (index === (selectedItem + 1) % SliderData.length) {

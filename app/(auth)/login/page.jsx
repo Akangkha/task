@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import LoginForm from "@/component/LoginForm";
 import SessionModal from "@/component/SessionModal";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import axios from "axios";
 
 const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
-  const [remainingTime, setRemainingTime] = useState(3 * 60); 
+  const [remainingTime, setRemainingTime] = useState(3 * 60);
 
   useEffect(() => {
     let intervalId;
@@ -27,7 +28,7 @@ const Page = () => {
 
       const id = setTimeout(() => {
         setShowModal(true);
-      },3* 60 * 1000); 
+      }, 3 * 60 * 1000); 
       setTimeoutId(id);
     }
 
@@ -37,14 +38,22 @@ const Page = () => {
     };
   }, [isLoggedIn]);
 
-  const handleLogin = () => {
+  const handleLogin = (expires) => {
     setIsLoggedIn(true);
-    resetTimer(3*60); 
+    const duration = (new Date(expires) - new Date()) / 1000;
+    resetTimer(duration); 
   };
 
-  const handleExtendSession = () => {
-    setShowModal(false);
-    resetTimer(5 * 60); 
+  const handleExtendSession = async () => {
+    try {
+      const response = await axios.post("/api/recaptcha/extend");
+      if (response.data.success) {
+        setShowModal(false);
+        resetTimer(5 * 60); 
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const handleLogout = () => {
@@ -53,7 +62,7 @@ const Page = () => {
     clearTimeout(timeoutId);
   };
 
-  const resetTimer = (duration) => {  
+  const resetTimer = (duration) => {
     clearTimeout(timeoutId);
     setRemainingTime(duration);
 
@@ -63,7 +72,7 @@ const Page = () => {
     setTimeoutId(id);
   };
 
-  const formatTime = (seconds) => {   
+  const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
@@ -78,7 +87,7 @@ const Page = () => {
           <LoginForm onLogin={handleLogin} />
         ) : (
           <>
-            <h1 className="text-xl text-center">Welcome! You are logged in.</h1>
+            <h1 className="text-xl text-center">You are logged in.</h1>
             <p className="text-center">
               Session expires in: {formatTime(remainingTime)}
             </p>
