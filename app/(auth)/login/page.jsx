@@ -4,13 +4,13 @@ import LoginForm from "@/component/LoginForm";
 import SessionModal from "@/component/SessionModal";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
-
 const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
-  const [remainingTime, setRemainingTime] = useState(3*60);
+  const [remainingTime, setRemainingTime] = useState(3 * 60);
   const [extendSession, setExtendSession] = useState(false);
+
   useEffect(() => {
     let intervalId;
 
@@ -28,7 +28,7 @@ const Page = () => {
 
       const id = setTimeout(() => {
         setShowModal(true);
-      }, 3* 60 * 1000);
+      }, remainingTime * 1000);
       setTimeoutId(id);
     }
 
@@ -36,7 +36,7 @@ const Page = () => {
       clearInterval(intervalId);
       clearTimeout(timeoutId);
     };
-  }, [isLoggedIn]);
+  }, [isLoggedIn, remainingTime]);
 
   const handleLogin = (expires) => {
     setIsLoggedIn(true);
@@ -45,11 +45,11 @@ const Page = () => {
   };
 
   const handleExtendSession = async () => {
-    handleLogin(new Date(Date.now() + 5 * 60 * 1000).toISOString());
+    const newDuration = 5 * 60;
+    handleLogin(new Date(Date.now() + newDuration * 1000).toISOString());
     setExtendSession(true);
-    setRemainingTime(5 * 60);
+    setRemainingTime(newDuration);
     setShowModal(false);
-  
   };
 
   const handleLogout = () => {
@@ -88,11 +88,11 @@ const Page = () => {
               Session expires in: {formatTime(remainingTime)}
             </p>
             {showModal && (
-            <SessionModal
-              onExtendSession={handleExtendSession}
-              onLogout={handleLogout}
-            />
-           )}
+              <SessionModal
+                onExtendSession={handleExtendSession}
+                onLogout={handleLogout}
+              />
+            )}
           </>
         )}
       </div>
