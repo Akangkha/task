@@ -95,7 +95,7 @@ const ProductTable = ({ resultCount }) => {
                 >
                   {!filter.type ? (
                     <div
-                      className={`flex flex-col gap-2 border border-gray-400 rounded p-5 mt-2 absolute ${
+                      className={`flex flex-col bg-black z-10 gap-2 border border-gray-400 rounded p-5 mt-2 absolute ${
                         !showFilter ? "left-0" : "right-0"
                       } top-4`}
                     >

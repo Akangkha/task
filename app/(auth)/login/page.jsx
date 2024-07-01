@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import LoginForm from "@/component/LoginForm";
 import SessionModal from "@/component/SessionModal";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import axios from "axios";
+
 
 const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
   const [remainingTime, setRemainingTime] = useState(3 * 60);
-
+  const [extendSession, setExtendSession] = useState(false);
   useEffect(() => {
     let intervalId;
 
@@ -28,7 +28,7 @@ const Page = () => {
 
       const id = setTimeout(() => {
         setShowModal(true);
-      }, 3 * 60 * 1000); 
+      }, 3 * 60 * 1000);
       setTimeoutId(id);
     }
 
@@ -41,19 +41,13 @@ const Page = () => {
   const handleLogin = (expires) => {
     setIsLoggedIn(true);
     const duration = (new Date(expires) - new Date()) / 1000;
-    resetTimer(duration); 
+    resetTimer(duration);
   };
 
   const handleExtendSession = async () => {
-    try {
-      const response = await axios.post("/api/recaptcha/extend");
-      if (response.data.success) {
-        setShowModal(false);
-        resetTimer(5 * 60); 
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    setExtendSession(true);
+    setShowModal(false);
+    handleLogin(new Date(Date.now() + 5 * 60 * 1000).toISOString());
   };
 
   const handleLogout = () => {
@@ -84,7 +78,7 @@ const Page = () => {
     >
       <div className="grid place-content-center h-screen">
         {!isLoggedIn ? (
-          <LoginForm onLogin={handleLogin} />
+          <LoginForm onLogin={handleLogin} extendSession={extendSession} />
         ) : (
           <>
             <h1 className="text-xl text-center">You are logged in.</h1>
@@ -92,11 +86,11 @@ const Page = () => {
               Session expires in: {formatTime(remainingTime)}
             </p>
             {showModal && (
-              <SessionModal
-                onExtendSession={handleExtendSession}
-                onLogout={handleLogout}
-              />
-            )}
+            <SessionModal
+              onExtendSession={handleExtendSession}
+              onLogout={handleLogout}
+            />
+           )}
           </>
         )}
       </div>

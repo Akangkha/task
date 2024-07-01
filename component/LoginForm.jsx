@@ -3,7 +3,7 @@ import axios from "axios";
 import { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm({ onLogin ,extendSession}) {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submit, setSubmit] = useState("");
 
@@ -16,42 +16,30 @@ export default function LoginForm({ onLogin }) {
       return;
     }
 
-    const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
+    const gRecaptchaToken = await executeRecaptcha("loginSubmit");
 
-    try {
-      const response = await axios.post("/api/recaptcha", { gRecaptchaToken }, {
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-      });
+    const response = await axios.post("/api/recaptcha", {
+      gRecaptchaToken,
+      extendSession:extendSession,
+    });
 
-      if (response?.data?.success) {
-        console.log(`Success with score: ${response.data.score}`);
-        setSubmit("ReCaptcha Verified and Form Submitted!");
-        onLogin(response.data.expires);
-      } else {
-        console.log(`Failure with score: ${response.data.score}`);
-        setSubmit("Failed to verify recaptcha! You must be a robot!");
-      }
-    } catch (error) {
-      console.error("Error during recaptcha verification:", error);
-      setSubmit("Error during recaptcha verification.");
+    if (response.data.success) {
+      setSubmit("ReCaptcha Verified ");
+      onLogin(response.data.expires);
+    } else {
+      setSubmit("Failed to verify ");
     }
   };
 
   return (
     <main>
-      <h1 className="text-xl text-center">Login</h1>
+      <h1 className="text-4xl text-center">Login</h1>
       <br />
       <form
         className="flex flex-col justify-start items-center gap-4"
         onSubmit={handleSubmit}
       >
-        <button
-          type="submit"
-          className="border p-4 text-lg rounded bg-gray-900"
-        >
+        <button type="submit" className="border p-4 rounded bg-gray-900">
           Verify
         </button>
       </form>

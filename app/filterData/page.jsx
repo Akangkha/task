@@ -1,5 +1,4 @@
-import Data from "@/data/tableData.json";
-import Filters from "@/component/Filters";
+import Filters from "@/component/ProductTable";
 const page = () => {
   return (
     <>

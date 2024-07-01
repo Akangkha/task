@@ -4,7 +4,7 @@ import axios from "axios";
 export async function POST(request) {
   const secretKey = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET;
   const postData = await request.json();
-  const { gRecaptchaToken } = postData;
+  const { gRecaptchaToken, extendSession } = postData;
 
   const formData = new URLSearchParams({
     secret: secretKey,
@@ -21,9 +21,10 @@ export async function POST(request) {
         },
       }
     );
-
     if (res.data.success && res.data.score > 0.5) {
-      const expires = new Date(Date.now() + 3 * 60 * 1000).toISOString();
+      const duration = extendSession ? 5 * 60 : 3 * 60;
+      const expires = new Date(Date.now() + duration * 1000).toISOString();
+
       return NextResponse.json(
         {
           success: true,
@@ -32,7 +33,9 @@ export async function POST(request) {
         },
         {
           headers: {
-            "Set-Cookie": `session=true; Path=/; HttpOnly; Max-Age=${3 * 60}`,
+            "Set-Cookie": `session=true; Path=/; HttpOnly; Max-Age=${
+              duration * 60
+            }`,
           },
         }
       );
