@@ -1,9 +1,9 @@
 "use client";
 import axios from "axios";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export default function LoginForm() {
+export default function LoginForm({ onLogin }) {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [submit, setSubmit] = useState("");
 
@@ -12,30 +12,31 @@ export default function LoginForm() {
     setSubmit("");
 
     if (!executeRecaptcha) {
-      console.log("not available to execute recaptcha");
+      console.log("Recaptcha not available");
       return;
     }
 
     const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
 
-    const response = await axios({
-      method: "post",
-      url: "/api/recaptcha",
-      data: {
-        gRecaptchaToken,
-      },
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await axios.post("/api/recaptcha", { gRecaptchaToken }, {
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (response?.data?.success === true) {
-      console.log(`Success with score: ${response?.data?.score}`);
-      setSubmit("ReCaptcha Verified and Form Submitted!");
-    } else {
-      console.log(`Failure with score: ${response?.data?.score}`);
-      setSubmit("Failed to verify recaptcha! You must be a robot!");
+      if (response?.data?.success) {
+        console.log(`Success score: ${response.data.score}`);
+        setSubmit("ReCaptcha Verified!");
+        onLogin();
+      } else {
+        console.log(`Failure with score: ${response.data.score}`);
+        setSubmit("Failed to verify recaptcha!");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmit("Error during recaptcha verification.");
     }
   };
 
