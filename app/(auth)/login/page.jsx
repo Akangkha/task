@@ -9,7 +9,7 @@ const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
-  const [remainingTime, setRemainingTime] = useState(3 * 60);
+  const [remainingTime, setRemainingTime] = useState(3*60);
   const [extendSession, setExtendSession] = useState(false);
   useEffect(() => {
     let intervalId;
@@ -28,7 +28,7 @@ const Page = () => {
 
       const id = setTimeout(() => {
         setShowModal(true);
-      }, 3 * 60 * 1000);
+      }, 3* 60 * 1000);
       setTimeoutId(id);
     }
 
@@ -45,9 +45,11 @@ const Page = () => {
   };
 
   const handleExtendSession = async () => {
-    setExtendSession(true);
-    setShowModal(false);
     handleLogin(new Date(Date.now() + 5 * 60 * 1000).toISOString());
+    setExtendSession(true);
+    setRemainingTime(5 * 60);
+    setShowModal(false);
+  
   };
 
   const handleLogout = () => {
