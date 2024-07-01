@@ -5,7 +5,6 @@ import SliderData from "@/data/slider.json";
 
 const Slider = () => {
   const [selectedItem, setSelectedItem] = useState(0);
-
   const handleRadioChange = (item) => {
     setSelectedItem(item);
   };

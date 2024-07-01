@@ -175,22 +175,21 @@ const ProductTable = ({ resultCount }) => {
                           ))}
                         </select>
                       </div>
-
-                      <FiPlus
-                        onClick={handleAddFilter}
-                        className="cursor-pointer text-white"
-                      />
                     </div>
                   )}
                 </div>
               ))}
             {showFilter && filters.length > 0 && (
               <section className="flex items-center gap-3">
+                <FiPlus
+                  onClick={handleAddFilter}
+                  className="cursor-pointer text-white"
+                />
                 <TbFilterOff
                   onClick={() => {
                     setShowFilter(0);
                     setFilters([]);
-                    setFilteredData(Data.products); 
+                    setFilteredData(Data.products);
                   }}
                   className="cursor-pointer text-white"
                 />
